@@ -29,8 +29,30 @@ public class Checkpoint {
 		 * 
 		 * 5. Print only the cars with "toyota" in the name.
 		 */
-		
-		
+		Stream<CarMPGEntry> carList = readCarMPGEntryDataFromFile().stream();
+		carList.forEach((a)->{
+			System.out.println(a);
+		});
+		Stream<CarMPGEntry> carMPGs = readCarMPGEntryDataFromFile().stream();
+		carMPGs.forEach((b)->{
+			System.out.println(b.mpg);
+		});
+		Stream<CarMPGEntry> carNames = readCarMPGEntryDataFromFile().stream();
+		carNames.forEach((c)->{
+			System.out.println(c.mpg);
+		});
+		Stream<CarMPGEntry> carsWith8CylindersRemoved = readCarMPGEntryDataFromFile().stream();
+		carsWith8CylindersRemoved.forEach((d)->{
+			if(d.cylinders != 8) {
+				System.out.println(d.carName);
+			}
+		});
+		Stream<CarMPGEntry> carsWithToyota = readCarMPGEntryDataFromFile().stream();
+		carsWithToyota.forEach((e)->{
+			if(e.carName.contains("toyota")) {
+				System.out.println(e.carName);
+			}
+		});
 	}
 	
 	public static ArrayList<CarMPGEntry> readCarMPGEntryDataFromFile(){
